@@ -28,5 +28,11 @@ class JournalEntriesController < ApplicationController
     erb :'/journal_entries/show'
   end
 
+  # This route should send us to journal_entries/edit.erb, which will
+  # render an edit form
+  get '/journal_entries/:id/edit' do
+    erb :'/journal_entries/edit'
+  end
+
   # index route for all journal entries
 end
