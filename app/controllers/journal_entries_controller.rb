@@ -24,15 +24,53 @@ class JournalEntriesController < ApplicationController
 
   # show route for a journal entry
   get '/journal_entries/:id' do
-    @journal_entry = JournalEntry.find(params[:id])
+    set_journal_entry
     erb :'/journal_entries/show'
   end
+
+
+  # *** MAJOR PROBLEMS!!! ***
+  # 1. RIGHT NOW, ANYONE CAN EDIT ANYONE ELSE'S JOURNAL ENTRIES!!!!
+  # 2. ALSO, I CAN EDIT A JOURNAL ENTRY TO BE BLANK!!!!!
 
   # This route should send us to journal_entries/edit.erb, which will
   # render an edit form
   get '/journal_entries/:id/edit' do
-    erb :'/journal_entries/edit'
+    set_journal_entry
+    if logged_in?
+      if @journal_entry.user == current_user
+        erb :'/journal_entries/edit'
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else
+      redirect '/'
+    end
+  end
+
+  # This action's job is to ...???
+  patch '/journal_entries/:id' do
+    # 1. find the journal entry
+    set_journal_entry
+    if logged_in?
+      if @journal_entry.user == current_user
+      # 2. modify (update) the journal entry
+        @journal_entry.update(content: params[:content])
+        # 3. redirect to show page
+        redirect "/journal_entries/#{@journal_entry.id}"
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else
+      redirect '/'
+    end
   end
 
   # index route for all journal entries
+
+  private
+
+  def set_journal_entry
+    @journal_entry = JournalEntry.find(params[:id])
+  end
 end
