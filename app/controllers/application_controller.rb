@@ -30,7 +30,9 @@ class ApplicationController < Sinatra::Base
 
     def authorized_to_edit?(journal_entry)
       journal_entry.user == current_user
-    end 
+    end
+
+    # BULID HELPER METHOD FOR REDIRECTING IF NOT LOGGED IN!!
 
   end
 
