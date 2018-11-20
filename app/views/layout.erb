@@ -15,9 +15,11 @@
   </head>
   <body>
     <div class="nav">
-      <a href="/logout">Logout</a>
-      <a href="/journal_entries">All Journal Entries</a>
-      <a href="/journal_entries/new">New Entry</a>
+      <% if logged_in? %>
+        <a href="/logout">Logout</a>
+        <a href="/journal_entries">All Journal Entries</a>
+        <a href="/journal_entries/new">New Entry</a>
+      <% end %>
     </div>
     <div class="wrapper">
 
