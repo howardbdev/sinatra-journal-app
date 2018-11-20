@@ -1,1 +1,7 @@
-INDEX PAGE FOR JOURNAL ENTRIES
+ALL JOURNAL ENTRIES
+<% @journal_entries.each do |journal_entry| %>
+  <h4><a href="/journal_entries/<%= journal_entry.id %>"><%= journal_entry.created_at %></a></h4>
+  <p><%= journal_entry.content %></p>
+  <p>By <%= journal_entry.user.name %></p>
+  <br><br>
+<% end %>
