@@ -1,5 +1,11 @@
 class JournalEntriesController < ApplicationController
 
+
+  get '/journal_entries' do
+    @journal_entries = JournalEntry.all
+    erb :'journal_entries/index'
+  end
+
   # get journal_entries/new to render a form to create new entry
   get '/journal_entries/new' do
     erb :'/journal_entries/new'
@@ -38,7 +44,7 @@ class JournalEntriesController < ApplicationController
   get '/journal_entries/:id/edit' do
     set_journal_entry
     if logged_in?
-      if @journal_entry.user == current_user
+      if authorized_to_edit?(@journal_entry)
         erb :'/journal_entries/edit'
       else
         redirect "users/#{current_user.id}"
