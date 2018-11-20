@@ -1,6 +1,5 @@
 class JournalEntriesController < ApplicationController
 
-
   get '/journal_entries' do
     @journal_entries = JournalEntry.all
     erb :'journal_entries/index'
@@ -59,7 +58,7 @@ class JournalEntriesController < ApplicationController
     # 1. find the journal entry
     set_journal_entry
     if logged_in?
-      if @journal_entry.user == current_user
+      if @journal_entry.user == current_user && params[:content] != ""
       # 2. modify (update) the journal entry
         @journal_entry.update(content: params[:content])
         # 3. redirect to show page
@@ -72,6 +71,15 @@ class JournalEntriesController < ApplicationController
     end
   end
 
+  delete '/journal_entries/:id' do
+    set_journal_entry
+    if authorized_to_edit?(@journal_entry)
+      @journal_entry.destroy
+      redirect '/journal_entries'
+    else
+      redirect '/journal_entries'
+    end
+  end
   # index route for all journal entries
 
   private
