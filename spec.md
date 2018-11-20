@@ -18,13 +18,17 @@ journal entry belongs to user
 
 - [x] Include user accounts with unique login attribute (username or email)
 
-- [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
+- [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
 
-pending...
+user has full CRUD on journal entries
 
-- [ ] Ensure that users can't modify content created by other users
+- [x] Ensure that users can't modify content created by other users
 
-- [ ] Include user input validations
+don't show edit or delete links, also use helper method in controller to ensure edit and delete actions can only happen if current user owns the entry
+
+- [x] Include user input validations
+
+can't create a blank user or journal entry
 
 - [ ] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
 
