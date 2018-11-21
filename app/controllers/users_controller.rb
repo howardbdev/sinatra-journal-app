@@ -15,13 +15,14 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email])
     # Authenticate the user - verify the user is who they say they are
     # they have the credentials - email/password combo
-    if @user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:password])
       # log the user in - create the user session
       session[:user_id] = @user.id # actually logging the user in
       # redirect to the user's show page
       puts session
       redirect "users/#{@user.id}"
     else
+      flash[:message] = "Your credentials were invalid.  Please sign up or try again."
       # tell the user they entered invalid credentials
       # redirect them to the login page
       redirect '/login'
