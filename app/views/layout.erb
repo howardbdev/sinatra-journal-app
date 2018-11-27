@@ -21,10 +21,13 @@
         <a href="/journal_entries/new">New Entry</a>
       <% end %>
     </div>
-    <% if flash[:message] %>
-      <h3><%= flash[:message] %></h3>
-    <% end %>
     <div class="wrapper">
+      <% if flash[:message] %>
+      <h3><%= flash[:message] %></h3>
+      <% end %>
+      <% if flash[:errors] %>
+      <h3 style="color: red;"><%= flash[:errors] %></h3>
+      <% end %>
 
         <%= yield %>
 
