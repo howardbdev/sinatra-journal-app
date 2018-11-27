@@ -50,6 +50,10 @@ class UsersController < ApplicationController
     # }
     # I only want to persist a user that has a name, email, AND password
     @user = User.new(params)
+    # I now have ActiveRecord Validations within my user model class, rather
+    # than just checking for params keys to have values.  Either way works fine,
+    # and checking params is fine for this project.  AR validations give us
+    # a little more functionality if we want it.
     if @user.save
       # valid input
       session[:user_id] = @user.id # actually logging the user in
