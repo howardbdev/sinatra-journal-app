@@ -5,6 +5,7 @@ Video links:
 <br>
 [Part 3: User signup] - Add get and post signup routes and view with form, add logout route, add user show route <br>
 [Part 4: Journal Entry CR] - Add controller, routes, and views for journal entry create, new, and show <br>
+[Part 4: Journal Entry U] - Work on updating Journal entries <br>
 [Part 6: Journal Entry UD] - Add routes and views for journal entry edit and update <br><br>
 [Part 7: BONUS - adding flash messages] - Add flash messages <br><br>
 
