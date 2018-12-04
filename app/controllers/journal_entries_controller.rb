@@ -13,14 +13,15 @@ class JournalEntriesController < ApplicationController
 
   # post journal_entries to create a new journal entry
   post '/journal_entries' do
+    binding.pry
     redirect_if_not_logged_in
     # I want to create a new journal entry and save it to the DB
     # I also only want to create a journal entry if a user is logged in
     # I only want to save the entry if it has some content
     if params[:content] != ""
       # create a new entry
-      flash[:message] = "Journal entry successfully created."
-      @journal_entry = JournalEntry.create(content: params[:content], user_id: current_user.id)
+      @journal_entry = JournalEntry.create(content: params[:content], user_id: current_user.id, title: params[:title], mood: params[:mood])
+      flash[:message] = "Journal entry successfully created." if @journal_entry.id
       redirect "/journal_entries/#{@journal_entry.id}"
     else
       flash[:errors] = "Something went wrong - you must provide content for your entry."

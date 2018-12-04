@@ -8,11 +8,11 @@ sherry = User.create(name: "Sherry", email: "sherry@sherry.com", password: "pass
 
 # Create some journal entries
 
-JournalEntry.create(content: "Today is Tuesday and it's great!", user_id: howard.id)
+JournalEntry.create(title: "Happy Tuesday!", content: "Today is Tuesday and it's great!", user_id: howard.id)
 
 # Use AR to pre-associate data:
 
-howard.journal_entries.create(content: "We are building a Sinatra app!  Yaaay!")
+howard.journal_entries.create(title: "My Second Entry", content: "We are building a Sinatra app!  Yaaay!")
 
-sherrys_entry = sherry.journal_entries.build(content: "It's super cold in VA!!!")
+sherrys_entry = sherry.journal_entries.build(title: "Cold VA", content: "It's super cold in VA!!!")
 sherrys_entry.save

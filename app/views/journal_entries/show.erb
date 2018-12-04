@@ -1,6 +1,12 @@
-SHOW PAGE FOR A JOURNAL ENTRY
 
+
+<h3><%= @journal_entry.title %></h3>
 <p><%= @journal_entry.content %></p>
+<p>Mood: <%= @journal_entry.mood %></p>
+
+<p>Created by: <%= @journal_entry.user.name %></p>
+
+<p>created on <%= @journal_entry.formatted_created_at %></p>
 
 
 <% if authorized_to_edit?(@journal_entry) %>

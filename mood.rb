@@ -1,5 +1,5 @@
 class AddMoodToJournalEntry < ActiveRecord::Migration
   def change
-    add_column :journal_entries, :mood, :string, default: "happy"
+    add_column :journal_entries, :mood, :string, default: "no mood given"
   end
 end
