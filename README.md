@@ -10,6 +10,10 @@ To run this app, clone the repo and run `bundle install`.  The run `shotgun` to 
 
 You will need to have Ruby installed on your machine - Linux or Mac.
 
+## Video Links
+
+Watch this app being built!  Links in the [`video_links.md`](https://github.com/howardbdev/sinatra-journal-app/blob/master/video_links.md) file.
+
 ## Built With
 
 * [Sinatra](http://sinatrarb.com/) - Sinatra, our web framework
