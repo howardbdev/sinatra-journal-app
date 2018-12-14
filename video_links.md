@@ -9,6 +9,7 @@ Video links:
 [Part 6: Journal Entry UD] - Add routes and views for journal entry edit and update <br><br>
 [Part 7: BONUS - adding flash messages] - Add flash messages <br><br>
 [Part 8: BONUS - flash messages, AR errors, and helpers] - More on flash messages, AR errors and validations, and helper methods<br><br>
+[Part 9: BONUS - add attributes, adjust DB] - Add title and mood to journal entries, practice adjusting database with rollback<br><br>
 
 [Part 1: Getting Started]:https://youtu.be/y5XHoP5qwfY
 [Part 2: User login]:https://youtu.be/U5glnUNaJPs
@@ -18,3 +19,4 @@ Video links:
 [Part 6: Journal Entry UD]:https://youtu.be/uW0LVCvkIYM
 [Part 7: BONUS - adding flash messages]:https://youtu.be/H2V22MYhPGw
 [Part 8: BONUS - flash messages, AR errors, and helpers]:https://youtu.be/Y4M-7430ucM
+[Part 9: BONUS - add attributes, adjust DB]:https://youtu.be/2oJ8khqXKpk
